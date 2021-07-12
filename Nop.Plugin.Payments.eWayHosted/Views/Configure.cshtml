@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "_ConfigurePlugin";
+}
+
+@model ConfigurationModel
+@using Nop.Plugin.Payments.eWayHosted.Models;
+
+<form asp-controller="PaymenteWayHosted" asp-action="Configure" method="post">
+    <div class="cards-group">
+        <div class="card card-default">
+            <div class="card-body">
+                <p>
+                    <b>Test account information</b>
+                    <br />
+                    A test facility is available using the following credentials:
+                    <br />
+                    CustomerID: 87654321
+                    <br />
+                    Username: TestAccount
+                    <br />
+                    Test Credit Card: 4444333322221111
+                    <br />
+                </p>
+
+                <p>
+                    <b>Payment page</b>
+                    <br />
+                    AU: https://au.ewaygateway.com/
+                    <br />
+                    NZ: https://nz.ewaygateway.com/
+                    <br />
+                    For more info go to https://www.eway.com.au/
+                </p>
+
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-label asp-for="CustomerId" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="CustomerId" />
+                        <span asp-validation-for="CustomerId"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-label asp-for="Username" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="Username" />
+                        <span asp-validation-for="Username"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-label asp-for="PaymentPage" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="PaymentPage" />
+                        <span asp-validation-for="PaymentPage"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-label asp-for="AdditionalFee" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="AdditionalFee" />
+                        <span asp-validation-for="AdditionalFee"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" name="save" class="btn btn-primary">@T("Admin.Common.Save")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
